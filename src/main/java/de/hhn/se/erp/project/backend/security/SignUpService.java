@@ -1,4 +1,4 @@
-package de.hhn.se.embedded.zigbee.backend.security;
+package de.hhn.se.erp.project.backend.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +15,7 @@ public class SignUpService {
 		user.setUsername(username);
 		user.setPassword(new BCryptPasswordEncoder().encode(password));
 		user.grantRole(username.equals("admin") ? UserRole.ADMIN
-				: UserRole.USER);
+				: UserRole.STUDENT);
 		return userRepository.save(user);
 	}
 

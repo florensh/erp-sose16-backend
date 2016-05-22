@@ -1,4 +1,4 @@
-package de.hhn.se.embedded.zigbee.backend.security;
+package de.hhn.se.erp.project.backend.security;
 
 import java.util.List;
 
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import de.hhn.se.embedded.zigbee.backend.ResponseMessage;
 
 @RestController
 public class UserController {
@@ -42,13 +40,14 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
-	public ResponseEntity<ResponseMessage> addUser(@RequestBody final User user, HttpServletRequest req,
-			HttpServletResponse res) {
-		
-		if (user.getPassword() == null || user.getPassword().length() < 4) {
-			return new ResponseEntity<ResponseMessage>(new ResponseMessage("password to short"),
-					HttpStatus.UNPROCESSABLE_ENTITY);
-		}
+	public ResponseEntity<User> addUser(@RequestBody final User user,
+			HttpServletRequest req, HttpServletResponse res) {
+
+		// if (user.getPassword() == null || user.getPassword().length() < 4) {
+		// return new ResponseEntity<ResponseMessage>(new
+		// ResponseMessage("password to short"),
+		// HttpStatus.UNPROCESSABLE_ENTITY);
+		// }
 
 		User newUser = this.signUpService.execute(user.getUsername(),
 				user.getPassword());
@@ -59,8 +58,8 @@ public class UserController {
 
 		tokenAuthenticationService.addAuthentication(res, authentication);
 
-//		return ((UserAuthentication) authentication).getDetails();
-		return new ResponseEntity<ResponseMessage>(new ResponseMessage("user successfully registered"), HttpStatus.OK);
+		// return ((UserAuthentication) authentication).getDetails();
+		return new ResponseEntity<User>(newUser, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/api/users/current", method = RequestMethod.PATCH)

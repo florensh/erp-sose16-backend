@@ -1,4 +1,4 @@
-package de.hhn.se.embedded.zigbee.backend.security;
+package de.hhn.se.erp.project.backend.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;

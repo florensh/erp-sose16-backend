@@ -1,7 +1,7 @@
-package de.hhn.se.embedded.zigbee.backend.security;
+package de.hhn.se.erp.project.backend.security;
 
 public enum UserRole {
-	USER, ADMIN;
+	STUDENT, ADMIN;
 
 	public UserAuthority asAuthorityFor(final User user) {
 		final UserAuthority authority = new UserAuthority();
@@ -12,8 +12,8 @@ public enum UserRole {
 
 	public static UserRole valueOf(final UserAuthority authority) {
 		switch (authority.getAuthority()) {
-		case "ROLE_USER":
-			return USER;
+		case "ROLE_STUDENT":
+			return STUDENT;
 		case "ROLE_ADMIN":
 			return ADMIN;
 		}

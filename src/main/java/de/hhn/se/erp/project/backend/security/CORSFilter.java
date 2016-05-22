@@ -1,4 +1,4 @@
-package de.hhn.se.embedded.zigbee.backend.security;
+package de.hhn.se.erp.project.backend.security;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class CORSFilter implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 
-		response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+		response.setHeader("Access-Control-Allow-Origin", "*");
 
 		response.setHeader("Access-Control-Allow-Methods",
 				"POST, PUT, PATCH, GET, OPTIONS, DELETE");

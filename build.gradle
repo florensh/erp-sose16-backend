@@ -36,19 +36,25 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-amqp")
+    //compile("org.springframework.boot:spring-boot-starter-amqp")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile('com.fasterxml.jackson.core:jackson-core:2.7.3')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
   	compile('org.springframework.boot:spring-boot-starter-security')
   	compile ('org.springframework.security:spring-security-test:4.0.1.RELEASE')
-  	compile("org.springframework.boot:spring-boot-starter-websocket")
-    compile("org.springframework:spring-messaging")
+  	//compile("org.springframework.boot:spring-boot-starter-websocket")
+    //compile("org.springframework:spring-messaging")
   	compile('org.hibernate:hibernate-validator')
     testCompile("junit:junit")
     runtime('com.h2database:h2')
     testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc:1.0.1.RELEASE'
+    
+    compile("org.hibersap:hibersap-core:1.2.0")
+    compile("org.hibersap:hibersap-jco:1.2.0")
+    //compile("org.hibersap:sapjco3:1.2.0")
+    compile group: 'org.hibersap', name: 'sapjco3', version: '3.0'
+    
 }
 
 task wrapper(type: Wrapper) {
@@ -79,7 +85,7 @@ test {
 }
 
 test {
-  exclude 'de.hhn.se.embedded.zigbee.backend/**'
+  //exclude 'de.hhn.se.embedded.zigbee.backend/**'
 }
 
 asciidoctor { 
