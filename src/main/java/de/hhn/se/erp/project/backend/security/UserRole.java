@@ -16,7 +16,12 @@ public enum UserRole {
 			return STUDENT;
 		case "ROLE_ADMIN":
 			return ADMIN;
+		case "ROLE_DOZENT":
+			return DOZENT;
+		case "ROLE_USER":
+			return USER;
 		}
-		throw new IllegalArgumentException("No role defined for authority: " + authority.getAuthority());
+		throw new IllegalArgumentException("No role defined for authority: "
+				+ authority.getAuthority());
 	}
 }
