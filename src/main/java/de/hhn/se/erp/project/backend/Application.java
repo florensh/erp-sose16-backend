@@ -31,18 +31,18 @@ public class Application {
 
 			@Override
 			public void afterPropertiesSet() {
-				addUser("admin", "admin");
-				addUser("184352", "184352");
+				addUser("184352", "184352", UserRole.STUDENT);
+				addUser("hoetzel", "hoetzel", UserRole.DOZENT);
 
 			}
 
-			private void addUser(String username, String password) {
+			private void addUser(String username, String password, UserRole role) {
 
 				User user = new User();
 				user.setUsername(username);
 				user.setPassword(new BCryptPasswordEncoder().encode(password));
-				user.grantRole(username.equals("admin") ? UserRole.ADMIN
-						: UserRole.STUDENT);
+				user.grantRole(role);
+				user.grantRole(UserRole.USER);
 				user = userRepository.save(user);
 
 			}

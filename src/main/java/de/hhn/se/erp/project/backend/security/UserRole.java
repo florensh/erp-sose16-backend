@@ -1,7 +1,7 @@
 package de.hhn.se.erp.project.backend.security;
 
 public enum UserRole {
-	STUDENT, ADMIN;
+	STUDENT, ADMIN, DOZENT, USER;
 
 	public UserAuthority asAuthorityFor(final User user) {
 		final UserAuthority authority = new UserAuthority();
