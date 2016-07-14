@@ -43,6 +43,11 @@ public class StatelessAuthenticationSecurityConfig extends WebSecurityConfigurer
 				.antMatchers("/favicon.ico").permitAll()
 				.antMatchers("/resources/**").permitAll()
 				.antMatchers("/docs/**/*").permitAll()
+                .antMatchers("/css/**/*").permitAll()
+                .antMatchers("/js/**/*").permitAll()
+                .antMatchers("/fonts/**/*").permitAll()
+                .antMatchers("/images/**/*").permitAll()
+
 				
 				//allow anonymous POSTs to login and register
 				.antMatchers(HttpMethod.POST, "/api/login", "/api/register", "/backend/**/*").permitAll()
